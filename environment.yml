@@ -1,0 +1,8 @@
+name: anndl
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - tensorflow-deps
+  - notebook
+prefix: /opt/homebrew/Caskroom/miniconda/base/envs/anndl
