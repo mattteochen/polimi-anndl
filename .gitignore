@@ -5,3 +5,4 @@
 *.zip
 *.npz
 *.json
+!h1/**/*.json
