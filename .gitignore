@@ -2,3 +2,6 @@
 *.keras
 *.png
 *.pkz
+*.zip
+*.npz
+*.json
