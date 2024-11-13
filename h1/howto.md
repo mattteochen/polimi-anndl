@@ -21,6 +21,9 @@ You can control the splitting percentages [here](https://vscode.dev/github/mattt
 ## Training params
 Batch size and epochs are defined [here](https://vscode.dev/github/mattteochen/polimi-anndl/blob/main/h1/main.ipynb#C16:L2)
 
+## Model fit callbacks
+Callbacks can be added and removed [here](https://vscode.dev/github/mattteochen/polimi-anndl/blob/main/h1/main.ipynb#C20:L2).
+
 ## Optimizer configuration
 Optimizer can be [configured](https://vscode.dev/github/mattteochen/polimi-anndl/blob/main/h1/main.ipynb#C17:L1) separately for classification training and base model fine tuning. Separate learning rates are applied.
 You can define an exponential decay policy by defining a float number [here](https://vscode.dev/github/mattteochen/polimi-anndl/blob/main/h1/main.ipynb#C17:L12).
