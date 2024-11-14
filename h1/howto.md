@@ -67,6 +67,8 @@ We adopt a name based filter as some layers have `0` trainable params so definin
 ## Augmentation
 You can build the desired augmentation pipeline [here](https://vscode.dev/github/mattteochen/polimi-anndl/blob/main/h1/main.ipynb#C24:L2).
 
+Custom augmentation that are not part of Keras layer can be define as [here](https://vscode.dev/github/mattteochen/polimi-anndl/blob/kaixi-aug/h1/main.ipynb#C28:L2). The augmentation function passed to the constructor must accept an image (np.array) as input.
+
 ## Start the training
 The training and fine tuning can be started [here](https://vscode.dev/github/mattteochen/polimi-anndl/blob/main/h1/main.ipynb#C30:L1). It's ready to use and the only thing you may change are the optimizer configurations (as shown above).
 
