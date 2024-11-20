@@ -6,3 +6,4 @@
 *.npz
 *.json
 !h1/**/*.json
+tests
