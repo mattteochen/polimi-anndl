@@ -21,6 +21,7 @@ For the following (bs = 32, lr = 1e-4):
 - AdamW (Mean Intersection Over Union: 43.05%)
 
 ### Augmentation
+`X_train`  has been doubled hence using `p=1.0` for all the augmentation in the pipeline
 AdamW[lr = 1e-4] + sparse_cross_ent + bs[16] + aug:
 ```
 transform = A.Compose([
@@ -33,6 +34,7 @@ transform = A.Compose([
 - Validation MIOU: 0.4654
 - Competition MIOU: 0.4454
 
+`X_train`  has been doubled hence using `p=1.0` for all the augmentation in the pipeline
 AdamW[lr = 1e-4] + sparse_cross_ent + bs[16] + aug:
 ```
 transform = A.Compose([
