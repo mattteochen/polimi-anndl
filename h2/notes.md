@@ -1,5 +1,6 @@
 # Kaixi
-## U_NET_XCEPTION: Optimizer
+## U_NET_XCEPTION
+### Optimizer
 For the following (bs = 32, lr = 1e-4):
 - Adam and AdamW are showing similar results (Mean Intersection Over Union: 41.23%). ReduceLROnPlateau is not showing something valuable (to be tested further).
 - SGD performs worse that Adam. (Mean Intersection Over Union: 37.91%)
@@ -14,9 +15,35 @@ For the following (bs = 32, lr = 1e-3):
 For the following (bs = 16, lr = 1e-4):
 - AdamW (Mean Intersection Over Union: < 41.23%)
 
-## U_NET: Optimizer
+## U_NET
+### Optimizer
 For the following (bs = 32, lr = 1e-4):
 - AdamW (Mean Intersection Over Union: 43.05%)
+
+### Augmentation
+AdamW[lr = 1e-4] + sparse_cross_ent + bs[16] + aug:
+```
+transform = A.Compose([
+      A.GridElasticDeform(num_grid_xy=(8, 8), magnitude=10), # p = 1
+      A.XYMasking(),
+      A.ShiftScaleRotate()
+
+  ])
+```
+- Validation MIOU: 0.4654
+- Competition MIOU: 0.4454
+
+AdamW[lr = 1e-4] + sparse_cross_ent + bs[16] + aug:
+```
+transform = A.Compose([
+      A.GridElasticDeform(num_grid_xy=(4, 4), magnitude=10), # p = 1
+      A.XYMasking(),
+      A.ShiftScaleRotate()
+
+  ])
+```
+- Validation MIOU: 0.45x
+- Competition MIOU: 0.4483
 
 ## Issues
 - Dice seems not be working out of the box (tf graph execution error good luck)
