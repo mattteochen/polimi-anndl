@@ -49,3 +49,14 @@ transform = A.Compose([
 
 ## Issues
 - Dice seems not be working out of the box (tf graph execution error good luck)
+
+# Francesco
+
+## UWNet
+- Tried AdamW with default settings and aug and got Final validation Mean Intersection Over Union: 48.68%
+  - Validation Cross-entropy falling after 3 epochs and then juggling around and even rising up, while training crossentropy goes down to zero steadly in over 90 epochs
+  - Validation accuracy and training accuracy follow the same path as loss but in the other way
+  - MIOU as accuracy
+  - All suggest a lack of generalization. 
+  - On test: Test Accuracy: 0.7388 Test Mean Intersection over Union: 0.4122
+  - Public score on Kaggle 0.45617 > 0.44827 (best)
