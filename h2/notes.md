@@ -105,3 +105,10 @@ transform = A.Compose([
   - LR_onPlateau -> 0.8 every 25
   - Atrous Spatial Pyramid Pooling + Spatial Dropout
   - Results are in the order of the best so far but we have a much more ordinate convorgence
+
+# Arianna
+
+- ASPP with weights initialization with He normal + l2 regularization lambda=1e-4 + lr reduce of factor 0.5 with patience 20: Final validation Mean Intersection Over Union: 48.46%. Test Mean Intersection over Union: 0.4762. On kaggle = 0.47093
+
+- RockSeg (same settings): Final validation Mean Intersection Over Union: 49.05%. Test Mean Intersection over Union: 0.4106. On kaggle: 0.40391.
+  Problem: validation goes up and down a lot
