@@ -60,3 +60,48 @@ transform = A.Compose([
   - All suggest a lack of generalization. 
   - On test: Test Accuracy: 0.7388 Test Mean Intersection over Union: 0.4122
   - Public score on Kaggle 0.45617 > 0.44827 (best)
+
+- Second attempt:
+  - Changes:
+    - Batch size = 64
+    - Aggressive (but more random) albumentation (
+      A.ShiftScaleRotate(p=0.7),
+      A.RandomBrightnessContrast(p=0.7),  
+      A.GaussianBlur((3,5), p=0.5), 
+      A.GridDropout(p=0.5), 
+      A.GridElasticDeform(num_grid_xy=(8, 8), magnitude=5, p=0.5),
+      A.XYMasking(p=0.5)  
+      )
+    - 0.2 dropouts in the pre-attention blocks (1-5) after all first activations
+    - Worse than the first attempt, stop early, wobbly acc
+
+- Third:
+  - Used Luca's Aug (0.463 on kaggle) but with my dropout and batch size
+  - Touch 0.47 while training but still super wobbly
+
+- Fourth
+  - BS: 32
+  - LR_onPlateau patience 20 factor 0.5 (half)
+  - GPT proposed aug slightly modified:
+
+    transform = A.Compose([
+            A.RandomRotate90(p=0.5),  # Random 90-degree rotation
+            A.HorizontalFlip(p=0.5),  # Horizontal flip for diverse texture representation
+            A.VerticalFlip(p=0.5),  # Vertical flip to simulate different orientations
+            A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),  # Adjust brightness and contrast
+            A.GaussianBlur(blur_limit=3, p=0.2),  # Add blur to simulate camera effects
+            A.CoarseDropout(max_holes=8, max_height=16, max_width=16, p=0.5),  # Randomly occlude parts of the image
+            A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.1, rotate_limit=45, p=0.5),  # Random shifts, scales, and rotations
+            A.ElasticTransform(alpha=1, sigma=50, p=0.5),
+            A.GridDistortion(num_steps=5, distort_limit=0.3, p=0.5),
+            A.OpticalDistortion(distort_limit=0.2, shift_limit=0.2, p=0.5),
+            A.Resize(height=IMG_SIZE[0], width=IMG_SIZE[1], p=1),  # Resize for consistent input size
+        ])
+
+  - Moved dropout after the second activation in each block, upped to 0.3
+  - No relevant updates
+
+- Fifth (ASPP)
+  - LR_onPlateau -> 0.8 every 25
+  - Atrous Spatial Pyramid Pooling + Spatial Dropout
+  - Results are in the order of the best so far but we have a much more ordinate convorgence
