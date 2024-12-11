@@ -7,3 +7,5 @@
 *.json
 !h1/**/*.json
 tests
+*.h5
+*.csv
