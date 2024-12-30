@@ -1,9 +1,9 @@
 .DS_Store
 *.keras
-*.png
 *.pkz
 *.zip
 *.npz
+*.npy
 *.json
 !h1/**/*.json
 tests

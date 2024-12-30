@@ -1,11 +1,13 @@
-# Polimi anndl homeworks
+# Artificial Neural Networks and Deep Learning
 
-## Installation
-It's up to you :D.
+This repo contains the group homework projects for the ANNDL course at [Politecnico di Milano](https://polimi.it). Proff: Boracchi, Matteucci.
 
-An example env dumps from a conda env are available (`environment.yml` and `environment_with_pip.yml`).
+The two homeworks for the academic year 2024/25 are:
 
-Tested on:
-- conda `23.5.2`
-- python `3.10`
-- macOS: `13.0 (22A380)`
+- H1: Blood Cells Image Classification (final mark 5.5/5.5)
+- H2: Mars Terrain Segmentation (final mark 5.0/5.5)
+
+The datasets were provided by our TA and are not publicly available. For each homework find in the `deliverables` subfolder the corresponding report explaining our work.
+The notebooks are runnable with minimum dependency requirements, a conda environment is given to replicate our settings, however some runs were done on external platforms such as kaggle.
+
+Authors: Arianna Procaccio, Francesco Buccoliero, Kai-Xi Matteo Chen, Luca Capoferri
